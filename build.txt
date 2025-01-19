@@ -1,0 +1,3 @@
+displayName = UpStats
+author = sterbenn
+version = 0.1

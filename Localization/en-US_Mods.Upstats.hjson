@@ -1,0 +1,5 @@
+Keybinds: {
+	OpenStats.DisplayName: Open Stats
+	AddMinningLevel.DisplayName: Add Minning Level
+	ResetStats.DisplayName: Reset Stats
+}
