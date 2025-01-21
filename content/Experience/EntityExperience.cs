@@ -18,8 +18,9 @@ namespace Upstats.content.Experience
             new EntityXP(NPCID.RedSlime, 2),
             new EntityXP(NPCID.PurpleSlime, 2),
             new EntityXP(NPCID.GreenSlime, 2),
-            new EntityXP(NPCID.IceSlime, 2),
+            new EntityXP(NPCID.IceSlime, 3),
             new EntityXP(NPCID.SandSlime, 3),
+            new EntityXP(NPCID.GoldenSlime, 10)
         };
 
         public static readonly List<EntityXP> SquirrelEntityXP = new List<EntityXP>

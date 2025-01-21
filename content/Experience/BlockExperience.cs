@@ -42,6 +42,11 @@ namespace Upstats.content.Experience
         {
             return allBlocks.FirstOrDefault(x => x.Id == tileID);
         }
+
+        public static int CalculateTreeExperience(int woodLength, double baseExperience, double scalingFactor)
+        {
+            return (int)Math.Floor(baseExperience * Math.Pow(woodLength, scalingFactor));
+        }
     }
 
 

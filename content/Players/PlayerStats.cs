@@ -125,9 +125,17 @@ namespace Upstats.content.Players
 
             if (entity != null)
             {
-                if (Player.HeldItem.DamageType == DamageClass.Melee || Player.HeldItem.DamageType == DamageClass.MeleeNoSpeed)
+                if (!target.boss)
                 {
-                    GetStatById(3).AddExperience(entity.Experience);
+                    if (target.lastInteraction >= 0 && target.lastInteraction < Main.maxPlayers && Main.player[target.lastInteraction] == Main.LocalPlayer)
+                    {
+                        Player player = Main.LocalPlayer;
+
+                        if (player.HeldItem.DamageType == DamageClass.Melee || player.HeldItem.DamageType == DamageClass.MeleeNoSpeed)
+                        {
+                            GetStatById(3).AddExperience(entity.Experience);
+                        }
+                    }
                 }
 
             }
@@ -142,7 +150,7 @@ namespace Upstats.content.Players
             {
                 if (IsTreeWood(tileType))
                 {
-                    int experience = CalculateTreeExperience(treeLengthTemp, block.Experience, 0.7);
+                    int experience = BlockExperience.CalculateTreeExperience(treeLengthTemp, block.Experience, 0.7);
                     GetStatById(2).AddExperience(experience);
                     treeLengthTemp = 0;
                 }
@@ -151,11 +159,6 @@ namespace Upstats.content.Players
                     GetStatById(1).AddExperience(block.Experience);
                 }
             }
-        }
-
-        private int CalculateTreeExperience(int woodLength, double baseExperience, double scalingFactor)
-        {
-            return (int)Math.Floor(baseExperience * Math.Pow(woodLength, scalingFactor));
         }
 
 

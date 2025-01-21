@@ -20,27 +20,21 @@ namespace Upstats.content.UI
 
         public override void OnInitialize()
         {
-            // Panel
-            panel = new UIPanel();
+            // Draggable Panel
+            panel = new DraggableUIPanel();
             panel.Width.Set(385, 0f);
             panel.Height.Set(425, 0f);
 
-            // Set a semi-transparent, glassy background color
-            panel.BackgroundColor = new Microsoft.Xna.Framework.Color(0, 0, 0, 128); // Black with 50% opacity
-            panel.BorderColor = new Microsoft.Xna.Framework.Color(255, 255, 255, 100); // White border with some transparency
-
-
-
+            // Set initial position under the map
             int mapRight = Main.screenWidth - 20;
             int mapBottom = 400;
-
             panel.Left.Set(mapRight - panel.Width.Pixels, 0f);
             panel.Top.Set(mapBottom - 10, 0f);
 
+            panel.BackgroundColor = new Color(0, 0, 0, 128);
+            panel.BorderColor = new Color(255, 255, 255, 100);
             Append(panel);
 
-
-            // Title Text
             titleText = new UIText("Player Stats", 1.2f);
             titleText.HAlign = 0.5f;
             titleText.Top.Set(10, 0f);
@@ -57,8 +51,8 @@ namespace Upstats.content.UI
 
             // Stats List
             statsList = new UIList();
-            statsList.Width.Set(-20, 1f);
-            statsList.Height.Set(-50, 1f);
+            statsList.Width.Set(-25, 1f);
+            statsList.Height.Set(-60, 1f);
             statsList.Top.Set(40, 0f);
             statsList.SetPadding(5);
             panel.Append(statsList);
@@ -66,7 +60,7 @@ namespace Upstats.content.UI
             // Scrollbar
             scrollbar = new UIScrollbar();
             scrollbar.Width.Set(20, 0f);
-            scrollbar.Height.Set(-50, 1f);
+            scrollbar.Height.Set(-60, 1f);
             scrollbar.Top.Set(40, 0f);
             scrollbar.HAlign = 1f;
             panel.Append(scrollbar);
