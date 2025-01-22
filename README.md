@@ -2,7 +2,7 @@
 UpStats provide a *stats system based on your interaction with the world of Terraria* such as:
 
 - [x] Minning
-- [x] Fishing
+- [ ] Fishing
 - [x] Woodcutting
 - [~] Fighting
 - [ ] More coming soon
