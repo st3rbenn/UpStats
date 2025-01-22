@@ -131,7 +131,9 @@ namespace Upstats.content.Players
                     {
                         Player player = Main.LocalPlayer;
 
-                        if (player.HeldItem.DamageType == DamageClass.Melee || player.HeldItem.DamageType == DamageClass.MeleeNoSpeed)
+                        Item heldItem = player.HeldItem;
+
+                        if (IsMeleeWeapon(heldItem) && heldItem.shoot == ProjectileID.None) // **heldItem.shoot == ProjectileID.None** Excludes spears and other melee projectiles
                         {
                             GetStatById(3).AddExperience(entity.Experience);
                         }
@@ -139,6 +141,12 @@ namespace Upstats.content.Players
                 }
 
             }
+        }
+
+
+        private bool IsMeleeWeapon(Item heldItem)
+        {
+            return (heldItem.DamageType == DamageClass.Melee || Main.LocalPlayer.HeldItem.DamageType == DamageClass.MeleeNoSpeed) && (heldItem.useStyle == ItemUseStyleID.Swing || heldItem.useStyle == ItemUseStyleID.Rapier);
         }
 
 

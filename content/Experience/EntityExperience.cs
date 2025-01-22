@@ -20,7 +20,15 @@ namespace Upstats.content.Experience
             new EntityXP(NPCID.GreenSlime, 2),
             new EntityXP(NPCID.IceSlime, 3),
             new EntityXP(NPCID.SandSlime, 3),
+            new EntityXP(NPCID.UmbrellaSlime, 7),
             new EntityXP(NPCID.GoldenSlime, 10)
+        };
+
+        public static readonly List<EntityXP> ZombieEntityXP = new List<EntityXP>
+        {
+            new EntityXP(NPCID.Zombie, 2),
+            new EntityXP(NPCID.ZombieRaincoat, 2),
+            new EntityXP(NPCID.ZombieEskimo, 2),
         };
 
         public static readonly List<EntityXP> SquirrelEntityXP = new List<EntityXP>
@@ -51,6 +59,11 @@ namespace Upstats.content.Experience
             new EntityXP(NPCID.Antlion, 3),
         };
 
+        public static readonly List<EntityXP> CommonEntityXP = new List<EntityXP>
+        {
+            new EntityXP(NPCID.FlyingFish, 2),
+        };
+
         public static readonly List<EntityXP> EntityXP = new List<EntityXP>
         {
         };
@@ -60,6 +73,8 @@ namespace Upstats.content.Experience
             .Concat(SquirrelEntityXP)
             .Concat(BirdEntityXP)
             .Concat(SandBiomeEntityXP)
+            .Concat(CommonEntityXP)
+            .Concat(ZombieEntityXP)
             .ToList();
 
         public static EntityXP GetEntityXPByEntityID(int entityID)

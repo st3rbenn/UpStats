@@ -44,7 +44,4 @@ namespace Upstats.content.UI
             }
         }
     }
-
-
-
 }
